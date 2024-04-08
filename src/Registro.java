@@ -1,6 +1,7 @@
 import java.util.Scanner;
 public class Registro {
 
+    //Organizacion del menu
     public void menu(){
         Modelo.getInstance();
         boolean flag=true;

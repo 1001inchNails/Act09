@@ -15,7 +15,9 @@ public class Modelo {
         }
         return instance;
     }
-
+/*
+Metodos para reparacion/sustitucion mediante polimorfismo
+ */
     public void reparar(String matricula, String color, String fabricante, boolean manillar, int pedales, boolean cadena, boolean pata, boolean guardafangos){
         this.listaMotos.add(new Moto(matricula,color,fabricante,manillar,pedales,cadena,pata,guardafangos));
     }
@@ -31,7 +33,9 @@ public class Modelo {
     public void reparar(String matricula, String color, String fabricante, int luzSenhalizacion, boolean remolque, boolean parachoques, boolean chimeneaEscape, boolean paravientos){
         this.listaCamions.add(new Camion(matricula,color,fabricante,luzSenhalizacion,remolque,parachoques,chimeneaEscape,paravientos));
     }
-
+    /*
+    Metodo para introducir datos
+     */
     public void introducirVehiculo(){
         Scanner scanner = new Scanner(System.in);
         System.out.print("Introduzca numero de matricula: ");
@@ -42,9 +46,10 @@ public class Modelo {
         String fabri = scanner.nextLine();
         System.out.print("Seleccione tipo de vehiculo: \n1. Coche\n2. Moto\n3. Camion\n4. Grua\n5. Tractor\n>");
         int opcion = scanner.nextInt();
-        scanner.nextLine();
+        scanner.nextLine(); // nextInt da problemas si se hace un nextLine despues
+                            //por eso se pone ese scanner vacio despues
 
-        switch(opcion){
+        switch(opcion){ //un case para cada tipo de vehiculo
             case 1:
                 boolean gps;
                 boolean centra;
@@ -220,7 +225,7 @@ public class Modelo {
 
 
     }
-
+    //Metodo para ver todas las listas
     public void verTodo(){
         System.out.println("Coches:\n");
         for(Coche coche: this.listaCoches){
